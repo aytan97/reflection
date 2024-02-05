@@ -1,0 +1,171 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.card {
+    /* border: 1px solid #ddd; */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    padding-bottom: 80px;
+}
+
+.table-hover {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+.table-hover th,
+.table-hover td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.table-hover th {
+    background-color: #f8f9fa;
+    color: #333;
+    /* border-radius: 10px; */
+}
+
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.file-custom::after {
+    content: "Choose File";
+    border: 1px solid #ddd;
+    padding: 11px 30px;
+    border-radius: 4px;
+    background-color: white;
+
+}
+
+#fileInput {
+    display: none;
+}
+
+
+.btn{
+    width: 80px;
+    float: right;
+    height: 40px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+
+@media (max-width: 1010px) {
+
+    tbody tr td:last-child,
+    thead tr th:last-child {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    body {
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      .container{
+        padding: 50px 0px;
+      }
+
+    td:first-child:before {
+        content: "Name: ";
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+    td:nth-child(2):before {
+        content: "Surname:  ";
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+    td:nth-child(3):before {
+        content: "Email:  ";
+        font-weight: bold;
+        padding-right: 11px;
+    }
+
+    td:nth-child(4):before {
+        content: "Tel:     ";
+        font-weight: bold;
+        padding-right: 50px;
+    }
+
+    th {
+        display: none;
+    }
+
+    .table {
+        border: none;
+        box-shadow: none;
+    }
+
+    .tbody {
+        margin-top: 330px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    tbody tr {
+        display: flex;
+        flex-direction: column;
+        border-color: transparent;
+        width: 320px;
+        border: 1px solid rgba(89, 88, 88, 0.107);
+        border-radius: 15px;
+        color: rgba(36, 37, 39, 0.599);
+        box-shadow: 0 0.125rem 0.25rem 0.125rem rgba(68, 68, 68, 0.075) !important;
+        margin-bottom: 20px;
+        background-color: white;
+    }
+
+    td {
+        padding: 10px 13px;
+    }
+
+    td:last-child {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .card {
+        border-radius: none;
+        box-shadow: none;
+    }
+
+    tbody tr td:last-child {
+        border-bottom: none;
+        display: block;
+    }
+
+    .file-custom {
+        margin: 0 23px;
+        box-sizing: border-box;
+    }
+}
