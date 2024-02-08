@@ -1,3 +1,5 @@
+
+let data =[]
 function addRowToTable(firstName, lastName, email,phone){
     // find the tbody tag at the first index - 0 
     const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0]; 
@@ -49,7 +51,12 @@ if(fileInput.files.length!==0){
             const [firstName, lastName, email, phone] = line.split(',')
            // console.log(firstName, lastName, email,phone);
             addRowToTable(firstName, lastName, email, phone)
+           // postData({firstName: firstName, lastName: lastName, email: email, phone: phone})
+          let object={firstName: firstName, lastName: lastName, email: email, phone: phone}
+          data.push(object)
         });
+
+
     }
 
 
@@ -57,36 +64,22 @@ if(fileInput.files.length!==0){
 reader.readAsText(file);
 
 
-let data = {}
 
-document.querySelector('.btn').addEventListener('click', function(e){
-    e.preventDefault()
-    let tableBody = document.getElementsByTagName('tbody')[0]
-
-    for(let i=0; i<tableBody.rows.length; i++){
-
-        data['name']=tableBody.rows[i].childNodes[0].textContent;
-        data['surname']=tableBody.rows[i].childNodes[1].textContent;
-        data['email']=tableBody.rows[i].childNodes[2].textContent;
-        data['phone']=tableBody.rows[i].childNodes[3].textContent;
-
-}
-
-console.log(data);
-fetch("http://localhost:3000/user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-    dataType: "json"
-  })
-    .then((res) => {console.log("Response status:", res.status); return res.json()})
-    .then((data) => {
-      console.log(data);
+document.querySelector(".btn")?.addEventListener("click", async function(){
+    console.log(document.querySelector(".btn"));
+    
+ await fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(() => {
+          alert("Data has been added successfully to the JSON Server")
+        })
+        .catch((err) => console.error(err.message));
     })
-    .catch((err) => console.error(err));
-
 })
 
-})
+
+
 
 
